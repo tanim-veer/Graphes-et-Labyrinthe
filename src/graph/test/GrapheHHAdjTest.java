@@ -102,4 +102,13 @@ public class GrapheHHAdjTest {
         List<Arc<String>> arcsDeD = graphe.getSucc("D");
         assertEquals(0, arcsDeD.size());
     }
+
+    @Test
+    public void testAffichageGraphe() {
+        GrapheHHAdj graphe = new GrapheHHAdj();
+        graphe.peupler("A-B(5), A-C(10), B-C(3), C-D(8)");
+
+        System.out.println("Affichage du graphe :");
+        System.out.println(graphe.toString());
+    }
 }
