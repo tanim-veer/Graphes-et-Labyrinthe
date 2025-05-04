@@ -26,8 +26,16 @@ public class GrapheHHAdj implements VarGraph {
 
 	@Override
 	public void ajouterArc(String source, String destination, Integer valeur) {
-		// TODO Auto-generated method stub
-		
-	}
+		ajouterSommet(source);
+		ajouterSommet(destination);
 
+		List<Arc<String>> arcs = adjacence.get(source);
+		for (Arc<String> arc : arcs) {
+			if (arc.dst().equals(destination)) {
+				throw new IllegalArgumentException("L'arc existe déjà");
+			}
+		}
+
+		arcs.add(new Arc<>(valeur, destination));
+	}
 }
