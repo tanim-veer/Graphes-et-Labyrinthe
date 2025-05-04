@@ -38,4 +38,20 @@ public class GrapheHHAdj implements VarGraph {
 
 		arcs.add(new Arc<>(valeur, destination));
 	}
+
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		for (Map.Entry<String, List<Arc<String>>> entry : adjacence.entrySet()) {
+			String sommet = entry.getKey();
+			List<Arc<String>> arcs = entry.getValue();
+
+			sb.append(sommet).append(" -> ");
+			for (Arc<String> arc : arcs) {
+				sb.append(arc.dst()).append("(").append(arc.val()).append(") ");
+			}
+			sb.append("\n");
+		}
+		return sb.toString();
+	}
 }
