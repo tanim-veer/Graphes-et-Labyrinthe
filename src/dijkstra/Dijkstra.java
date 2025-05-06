@@ -39,6 +39,35 @@ public class Dijkstra<T> implements ShortestPath<T> {
 		predecesseurs.put(src, null);
 		file.add(new Noeud<>(src, 0));
 
-		return null;
-    }
+		while (!file.isEmpty()) {
+			Noeud<T> courant = file.poll();
+			T u = courant.sommet;
+
+			// Ignorer si sommet déjà fixé
+			if (fixe.contains(u)) {
+				continue;
+			}
+
+			fixe.add(u);
+			animator.accept(u, distances.get(u));
+
+			for (Graph.Arc<T> arc : g.getSucc(u)) {
+				T v = arc.dst();
+				int poids = arc.val();
+
+				if (poids < 0) {
+					throw new IllegalArgumentException("Poids négatif détecté");
+				}
+
+				int nouvelleDistance = distances.get(u) + poids;
+
+				if (!distances.containsKey(v) || nouvelleDistance < distances.get(v)) {
+					distances.put(v, nouvelleDistance);
+					predecesseurs.put(v, u);
+					file.add(new Noeud<>(v, nouvelleDistance));
+				}
+			}
+		}
+		return new Distances<>(distances, predecesseurs);
+	}
 }
