@@ -32,7 +32,7 @@ public class GrapheHHAdj implements VarGraph {
 		List<Arc<String>> arcs = adjacence.get(source);
 		for (Arc<String> arc : arcs) {
 			if (arc.dst().equals(destination)) {
-				throw new IllegalArgumentException("L'arc de " + source + " à " + destination + " existe déjà"););
+				throw new IllegalArgumentException("L'arc de " + source + " à " + destination + " existe déjà");
 			}
 		}
 		arcs.add(new Arc<>(valeur, destination));
