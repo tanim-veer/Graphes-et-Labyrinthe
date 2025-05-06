@@ -1,7 +1,7 @@
-package dijkstra;
+package partie1.dijkstra;
 
-import graph.Graph;
-import graph.ShortestPath;
+import partie1.graph.Graph;
+import partie1.graph.ShortestPath;
 
 import java.util.HashMap;
 import java.util.Map;

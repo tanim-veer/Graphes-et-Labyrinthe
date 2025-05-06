@@ -1,4 +1,4 @@
-package graph;
+package partie1.graph;
 
 import java.util.ArrayList;
 import java.util.HashMap;

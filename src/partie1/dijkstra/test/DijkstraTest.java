@@ -1,4 +1,4 @@
-package dijkstra.test;
+package partie1.dijkstra.test;
 
 import static org.junit.Assert.assertThrows;
 import static org.junit.jupiter.api.Assertions.*;
@@ -6,13 +6,13 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.List;
-import graph.Graph;
-import graph.GrapheHHAdj;
-import graph.ShortestPath.Distances;
-import graph.VarGraph;
-import org.junit.jupiter.api.Test;
 
-import dijkstra.Dijkstra;
+import partie1.dijkstra.Dijkstra;
+import partie1.graph.Graph;
+import partie1.graph.GrapheHHAdj;
+import partie1.graph.ShortestPath.Distances;
+import partie1.graph.VarGraph;
+import org.junit.jupiter.api.Test;
 
 class DijkstraTest {
 	private static final String GRAPH1 = "A-B(6), A-C(1), A-D(2), B-E(1), C-E(4), D-B(1), E-F(1)";

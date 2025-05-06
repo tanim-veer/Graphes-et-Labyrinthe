@@ -1,10 +1,10 @@
-package graph.test;
+package partie1.graph.test;
 
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
-import graph.GrapheHHAdj;
-import graph.Graph.Arc;
+import partie1.graph.GrapheHHAdj;
+import partie1.graph.Graph.Arc;
 
 import java.util.List;
 
