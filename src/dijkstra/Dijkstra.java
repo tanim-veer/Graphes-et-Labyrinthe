@@ -17,5 +17,7 @@ public class Dijkstra<T> implements ShortestPath<T> {
 		Map<T, Integer> distances = new HashMap<>();
 		Map<T, T> predecesseurs = new HashMap<>();
 		Set<T> fixe = new HashSet<>();
+
+		return null;
     }
 }
