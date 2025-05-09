@@ -3,8 +3,8 @@ package partie2.applications;
 import java.awt.Color;
 import java.util.List;
 
-import partie2.graph.Graph;
-import partie2.graph.ShortestPath_Distances;
+import partie1.graph.Graph;
+import partie1.graph.ShortestPath;
 import partie2.maze.Maze;
 import partie2.maze.algorithms.Generators;
 import partie2.maze.panel.MazeView;
