@@ -19,6 +19,7 @@ public class GraphMaze<C> implements Graph<C> {
         for (C neighbor : maze.openedNeighbours(node)) {
             successors.put(neighbor, 1);
         }
+
         return (List<Arc<C>>) successors;
     }
 }
