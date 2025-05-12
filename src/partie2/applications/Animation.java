@@ -8,8 +8,8 @@ import java.util.List;
 
 import partie1.graph.Graph;
 import partie1.graph.ShortestPath.Distances;
-import partie2.maze.panel.MazeView;
-import partie2.maze.regular.RegularMaze;
+import maze.panel.MazeView;
+import maze.regular.RegularMaze;
 import partie2.adaptator.GraphMaze;
 import partie1.dijkstra.Dijkstra;
 

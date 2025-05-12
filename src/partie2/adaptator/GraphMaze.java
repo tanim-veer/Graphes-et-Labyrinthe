@@ -1,8 +1,9 @@
 package partie2.adaptator;
 
 import partie1.graph.Graph;
-import partie2.maze.Maze;
+import maze.Maze;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class GraphMaze<C> implements Graph<C> {
@@ -13,11 +14,11 @@ public class GraphMaze<C> implements Graph<C> {
     }
 
     @Override
-    public Map<C, Integer> getSucc(C node) {
+    public List<Arc<C>> getSucc(C node) {
         Map<C, Integer> successors = new HashMap<>();
         for (C neighbor : maze.openedNeighbours(node)) {
             successors.put(neighbor, 1);
         }
-        return successors;
+        return (List<Arc<C>>) successors;
     }
 }
