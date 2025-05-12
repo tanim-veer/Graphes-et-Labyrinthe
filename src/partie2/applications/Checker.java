@@ -6,9 +6,9 @@ import java.util.Arrays;
 
 import partie1.graph.Graph;
 import partie1.graph.ShortestPath.Distances;
+import maze.regular.RegularMaze;
+import adaptator.GraphMaze;
 import partie1.dijkstra.Dijkstra;
-import partie2.maze.regular.RegularMaze;
-import partie2.adaptator.GraphMaze;
 
 public class Checker {
 	/**
@@ -43,6 +43,19 @@ public class Checker {
 
 	}
 
+	private static boolean checkPred(RegularMaze maze, Distances<Integer> expected, Distances<Integer> computed) {
+		for (int i = 0; i < maze.height() * maze.width(); ++i) {
+			Integer pred = computed.pred().get(i);
+			if (pred == null) {
+				if (expected.pred().get(i) != null)
+					return false;
+			}
+			else if (computed.dist().get(i) != expected.dist().get(pred) + 1)
+				return false;
+		}
+		return true;
+	}
+
 
 	/**
 	 * Vérifie la correction d'un algorithme de calcul de plus court chemin
@@ -60,21 +73,21 @@ public class Checker {
 		try {
 			maze = RegularMaze.readMaze(mazeFile);
 		} catch (ClassNotFoundException | IOException e) {
-			System.out.println("file '" + mazeFile + "' missing or in wrong format");
+			System.out.println("ficher '" + mazeFile + "' manquant ou au mauvais format");
 			return;
 		}
 		Distances<Integer> expectedDist = null;
 		try {
 			expectedDist = Distances.readDist(distFile);
 		} catch (ClassNotFoundException | IOException e) {
-			System.out.println("file '" + distFile + "' missing or in wrong format");
+			System.out.println("fichier '" + distFile + "' manquant ou au mauvais format");
 			return;
 		}		
 		Graph<Integer> graph = new GraphMaze<>(maze);
 		Distances<Integer> dst = new Dijkstra<Integer>().compute(graph, maze.start());
-		if (!dst.equals(expectedDist))
-			System.out.println("failed");
+		if (!dst.dist().equals(expectedDist.dist())|| !checkPred(maze, expectedDist, dst))
+			System.out.println("echec" + " : " + mazeFile + " et " + distFile);
 		else
-			System.out.println("success");
+				System.out.println("succes"	+ " : " + mazeFile + " et " + distFile	);
 	}
 }
