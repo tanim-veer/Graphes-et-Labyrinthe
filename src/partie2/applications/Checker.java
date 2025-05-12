@@ -6,8 +6,8 @@ import java.util.Arrays;
 
 import partie1.graph.Graph;
 import partie1.graph.ShortestPath.Distances;
-import maze.regular.RegularMaze;
-import adaptator.GraphMaze;
+import partie2.maze.regular.RegularMaze;
+import partie2.adaptator.GraphMaze;
 import partie1.dijkstra.Dijkstra;
 
 public class Checker {
