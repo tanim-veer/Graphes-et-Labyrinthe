@@ -8,8 +8,19 @@ import partie1.graph.Graph.Arc;
 
 import java.util.List;
 
+/**
+ * Classe de tests supplémentaires pour la classe {@link GrapheHHAdj}.
+ *
+ * Teste des cas particuliers comme les graphes avec cycles, les sommets isolés,
+ * et les erreurs de format dans la construction du graphe.
+ */
 public class GrapheHHAdjTest2 {
 
+    /**
+     * Teste la construction d'un graphe simple à partir d'une chaîne.
+     *
+     * Vérifie que les arcs et les sommets sont correctement ajoutés.
+     */
     @Test
     public void testPeuplerSimple() {
         GrapheHHAdj graphe = new GrapheHHAdj();
@@ -36,6 +47,11 @@ public class GrapheHHAdjTest2 {
         System.out.println(graphe.toString());
     }
 
+    /**
+     * Teste la construction d'un graphe contenant un cycle.
+     *
+     * Vérifie que les arcs et les sommets sont correctement ajoutés dans un graphe avec un cycle.
+     */
     @Test
     public void testPeuplerCycle() {
         GrapheHHAdj graphe = new GrapheHHAdj();
@@ -50,6 +66,11 @@ public class GrapheHHAdjTest2 {
         System.out.println(graphe.toString());
     }
 
+    /**
+     * Teste la construction d'un graphe avec un sommet isolé.
+     *
+     * Vérifie que le sommet isolé est correctement ajouté et n'a pas d'arcs sortants.
+     */
     @Test
     public void testPeuplerSommetIsole() {
         GrapheHHAdj graphe = new GrapheHHAdj();
@@ -65,11 +86,14 @@ public class GrapheHHAdjTest2 {
         System.out.println(graphe.toString());
     }
 
+    /**
+     * Teste que la méthode peupler lève une exception pour un arc mal formé.
+     */
     @Test
     public void testFormatArcInvalide() {
         GrapheHHAdj graphe = new GrapheHHAdj();
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            graphe.peupler("A-B, A-C(2)"); // Arc "A-B" sans poids
+            graphe.peupler("A-B, A-C(2)");
         });
         assertTrue(exception.getMessage().contains("Format d'arc incorrect"), "Message d'erreur incorrect pour format d'arc");
     }
