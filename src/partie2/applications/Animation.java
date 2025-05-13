@@ -13,13 +13,28 @@ import maze.regular.RegularMaze;
 import partie2.adaptator.GraphMaze;
 import partie1.dijkstra.Dijkstra;
 
+/**
+ * Affiche une animation du calcul des plus courts chemins dans un labyrinthe.
+ *
+ * Utilise l'algorithme de Dijkstra pour trouver le chemin le plus court entre l'entrée
+ * et la sortie d'un labyrinthe, et affiche le processus dans une interface graphique.
+ */
 public class Animation {
-	public static void animation(String mazeFile){
+
+	/**
+	 * Anime le calcul des plus courts chemins dans un labyrinthe.
+	 *
+	 * Affiche le labyrinthe, annote les distances calculées pour chaque case,
+	 * et trace le chemin final de l'entrée à la sortie.
+	 *
+	 * @param mazeFile Le chemin vers le fichier contenant le labyrinthe (.maze).
+	 */
+	public static void animation(String mazeFile) {
 		RegularMaze maze = null;
 		try {
 			maze = RegularMaze.readMaze(mazeFile);
 		} catch (ClassNotFoundException | IOException e) {
-			System.out.println("ficher '" + mazeFile + "' manquant ou au mauvais format");
+			System.out.println("fichier '" + mazeFile + "' manquant ou au mauvais format");
 			return;
 		}
 		Graph<Integer> graph = new GraphMaze<>(maze);
@@ -37,7 +52,7 @@ public class Animation {
 				}
 		);
 		if (dst.dist().get(end) == null)
-			System.out.println("La sortie n'est pas acessible depuis l'entree.");
+			System.out.println("La sortie n'est pas accessible depuis l'entrée.");
 		else {
 			int current = end;
 			while (current != start) {
@@ -50,12 +65,18 @@ public class Animation {
 			view.repaint();
 		}
 	}
+
 	/**
-	 * Lit tous les fichiers au format x.maze du repertoire bench
-	 * et appelle la methode animation sur chacun d'eux
-	 **/
+	 * Point d'entrée principal.
+	 *
+	 * Lit tous les fichiers .maze dans le répertoire "bench" et appelle la méthode
+	 * {@link #animation} pour chacun d'eux.
+	 *
+	 * @param args Les arguments de la ligne de commande (aucun attendu).
+	 * @throws IllegalArgumentException si des arguments sont fournis.
+	 */
 	public static void main(String[] args) {
-		if (args.length >0)
+		if (args.length > 0)
 			throw new IllegalArgumentException("aucun argument attendu");
 		File benchDir = new File("bench");
 		if (!benchDir.exists() || !benchDir.isDirectory()) {
@@ -72,10 +93,10 @@ public class Animation {
 		});
 	}
 
-
-/**	 * Pause l'exécution du programme pendant une durée spécifiée.
+	/**
+	 * Pause l'exécution du programme pendant une durée spécifiée.
 	 *
-	 * @param duration la durée de la pause en millisecondes
+	 * @param duration La durée de la pause en millisecondes.
 	 */
 	private static void pause(long duration) {
 		try {
