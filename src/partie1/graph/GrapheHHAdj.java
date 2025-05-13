@@ -39,6 +39,39 @@ public class GrapheHHAdj implements VarGraph {
 	}
 
 	@Override
+	public void peupler(String arcs) {
+		if (arcs == null || arcs.trim().isEmpty()) {
+			throw new IllegalArgumentException("La chaîne est vide");
+		}
+		String[] listeArcs = arcs.split(",");
+		for (String arc : listeArcs) {
+			arc = arc.trim();
+			int dashIndex = arc.indexOf("-");
+			if (dashIndex == -1 || dashIndex == arc.length() - 1) {
+				throw new IllegalArgumentException("Format d'arc incorrect : " + arc);
+			}
+			String source = arc.substring(0, dashIndex).trim();
+			String reste = arc.substring(dashIndex + 1).trim();
+
+			int debutPoids = reste.indexOf("(");
+			int finPoids = reste.indexOf(")");
+			if (debutPoids == -1 || finPoids == -1 || debutPoids >= finPoids) {
+				throw new IllegalArgumentException("Format d'arc incorrect : " + arc);
+			}
+			String destination = reste.substring(0, debutPoids).trim();
+			String poidsStr = reste.substring(debutPoids + 1, finPoids).trim();
+
+			int poids;
+			try {
+				poids = Integer.parseInt(poidsStr);
+			} catch (NumberFormatException e) {
+				throw new IllegalArgumentException("poids pas un nombre : " + poidsStr);
+			}
+			ajouterArc(source, destination, poids);
+		}
+	}
+
+	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 

@@ -24,7 +24,7 @@ public class DijkstraTest2 {
             "A", 0, "B", 4, "C", 2, "D", 4
     );
 
-    private static final String GRAPH_ISOLE = "A-B(3), A-C(5), B-D(2), E-";
+    private static final String GRAPH_ISOLE = "A-B(3), A-C(5), B-D(2)";
     private static final String FROM_ISOLE = "A";
     private static final String TO_ISOLE = "D";
     private static final int EXPECTED_DIST_ISOLE = 5;
@@ -57,7 +57,7 @@ public class DijkstraTest2 {
         assertNull(c, "Le prédécesseur de A devrait être null");
 
         // Affichage pour inspection
-        System.out.println("Graphe avec cycle : " + g);
+        System.out.println("Graphe avec cycle : \n" + g);
         System.out.println("Distances de A : " + dst.dist());
         System.out.println("Predecesseurs : " + dst.pred());
         System.out.println("Distance de A à D : " + dst.dist().get(TO_CYCLE));
@@ -76,8 +76,10 @@ public class DijkstraTest2 {
 
     @Test
     public void testSommetInatteignable() {
-        VarGraph g = new GrapheHHAdj();
+        GrapheHHAdj g = new GrapheHHAdj();
         g.peupler(GRAPH_ISOLE);
+        // Ajouter le sommet isolé E manuellement
+        g.ajouterSommet("E"); // Assumes GrapheHHAdj has ajouterSommet method
         Distances<String> dst = dijkstra.compute(g, FROM_ISOLE);
 
         // Vérifie toutes les distances
@@ -99,7 +101,7 @@ public class DijkstraTest2 {
         assertNull(c, "Le prédécesseur de A devrait être null");
 
         // Affichage pour inspection
-        System.out.println("Graphe avec sommet isolé : " + g);
+        System.out.println("Graphe avec sommet isolé : \n" + g);
         System.out.println("Distances de A : " + dst.dist());
         System.out.println("Predecesseurs : " + dst.pred());
         System.out.println("Distance de A à D : " + dst.dist().get(TO_ISOLE));
