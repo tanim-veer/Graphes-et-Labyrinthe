@@ -14,12 +14,17 @@ import org.junit.jupiter.api.Test;
 
 import partie1.dijkstra.Dijkstra;
 
+/**
+ * Classe de tests supplémentaires pour l'algorithme de Dijkstra.
+ *
+ * Teste des cas particuliers comme les graphes avec cycles et les graphes avec des sommets inatteignables.
+ */
 public class DijkstraTest2 {
     private static final String GRAPH_CYCLE = "A-B(4), A-C(2), B-C(1), B-D(5), C-D(2)";
     private static final String FROM_CYCLE = "A";
     private static final String TO_CYCLE = "D";
     private static final int EXPECTED_DIST_CYCLE = 4;
-    private static final List<String> EXPECTED_PATH_CYCLE = List.of("D", "C", "A"); // in pred order
+    private static final List<String> EXPECTED_PATH_CYCLE = List.of("D", "C", "A");
     private static final Map<String, Integer> EXPECTED_DISTANCES_CYCLE = Map.of(
             "A", 0, "B", 4, "C", 2, "D", 4
     );
@@ -28,13 +33,18 @@ public class DijkstraTest2 {
     private static final String FROM_ISOLE = "A";
     private static final String TO_ISOLE = "D";
     private static final int EXPECTED_DIST_ISOLE = 5;
-    private static final List<String> EXPECTED_PATH_ISOLE = List.of("D", "B", "A"); // in pred order
+    private static final List<String> EXPECTED_PATH_ISOLE = List.of("D", "B", "A");
     private static final Map<String, Integer> EXPECTED_DISTANCES_ISOLE = Map.of(
             "A", 0, "B", 3, "C", 5, "D", 5
     );
 
     private static final Dijkstra<String> dijkstra = new Dijkstra<>();
 
+    /**
+     * Teste l'algorithme de Dijkstra sur un graphe contenant un cycle.
+     *
+     * Vérifie que les distances et le chemin calculés sont corrects.
+     */
     @Test
     public void testAvecCycle() {
         VarGraph g = new GrapheHHAdj();
@@ -57,7 +67,7 @@ public class DijkstraTest2 {
         assertNull(c, "Le prédécesseur de A devrait être null");
 
         // Affichage pour inspection
-        System.out.println("Graphe avec cycle : \n" + g);
+        System.out.println("Graphe avec cycle : " + g);
         System.out.println("Distances de A : " + dst.dist());
         System.out.println("Predecesseurs : " + dst.pred());
         System.out.println("Distance de A à D : " + dst.dist().get(TO_CYCLE));
@@ -74,12 +84,16 @@ public class DijkstraTest2 {
         System.out.println();
     }
 
+    /**
+     * Teste l'algorithme de Dijkstra sur un graphe avec un sommet inatteignable.
+     *
+     * Vérifie que le sommet isolé n'apparaît pas dans les distances et que le chemin calculé est correct.
+     */
     @Test
     public void testSommetInatteignable() {
         GrapheHHAdj g = new GrapheHHAdj();
         g.peupler(GRAPH_ISOLE);
-        // Ajouter le sommet isolé E manuellement
-        g.ajouterSommet("E"); // Assumes GrapheHHAdj has ajouterSommet method
+        g.ajouterSommet("E");
         Distances<String> dst = dijkstra.compute(g, FROM_ISOLE);
 
         // Vérifie toutes les distances
@@ -101,7 +115,7 @@ public class DijkstraTest2 {
         assertNull(c, "Le prédécesseur de A devrait être null");
 
         // Affichage pour inspection
-        System.out.println("Graphe avec sommet isolé : \n" + g);
+        System.out.println("Graphe avec sommet isolé : " + g);
         System.out.println("Distances de A : " + dst.dist());
         System.out.println("Predecesseurs : " + dst.pred());
         System.out.println("Distance de A à D : " + dst.dist().get(TO_ISOLE));
