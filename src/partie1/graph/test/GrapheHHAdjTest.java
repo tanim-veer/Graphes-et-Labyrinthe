@@ -8,8 +8,19 @@ import partie1.graph.Graph.Arc;
 
 import java.util.List;
 
+/**
+ * Classe de tests pour la classe {@link GrapheHHAdj}.
+ *
+ * Teste les fonctionnalités de base de la représentation du graphe, y compris l'ajout
+ * de sommets, d'arcs, la construction à partir d'une chaîne, et l'affichage.
+ */
 public class GrapheHHAdjTest {
 
+    /**
+     * Teste l'ajout de sommets dans le graphe.
+     *
+     * Vérifie que les sommets sont ajoutés correctement et que leur liste d'arcs sortants est vide.
+     */
     @Test
     public void testAjouterSommet() {
         GrapheHHAdj graphe = new GrapheHHAdj();
@@ -29,6 +40,11 @@ public class GrapheHHAdjTest {
         assertTrue(graphe.getSucc("A").isEmpty());
     }
 
+    /**
+     * Teste l'ajout d'arcs dans le graphe.
+     *
+     * Vérifie que les arcs sont ajoutés correctement et que les sommets associés sont créés.
+     */
     @Test
     public void testAjouterArc() {
         GrapheHHAdj graphe = new GrapheHHAdj();
@@ -71,6 +87,9 @@ public class GrapheHHAdjTest {
         assertTrue(arcsDeC.isEmpty());
     }
 
+    /**
+     * Teste qu'une exception est levée lors de l'ajout d'un arc déjà existant.
+     */
     @Test
     public void testAjouterArcExistant() {
         GrapheHHAdj graphe = new GrapheHHAdj();
@@ -84,6 +103,11 @@ public class GrapheHHAdjTest {
         assertTrue(exception.getMessage().contains("existe déjà"));
     }
 
+    /**
+     * Teste la construction d'un graphe à partir d'une chaîne de caractères.
+     *
+     * Vérifie que les arcs sont correctement ajoutés et que les sommets ont le bon nombre d'arcs sortants.
+     */
     @Test
     public void testPeupler() {
         GrapheHHAdj graphe = new GrapheHHAdj();
@@ -103,6 +127,9 @@ public class GrapheHHAdjTest {
         assertEquals(0, arcsDeD.size());
     }
 
+    /**
+     * Affiche la représentation textuelle du graphe.
+     */
     @Test
     public void testAffichageGraphe() {
         GrapheHHAdj graphe = new GrapheHHAdj();
