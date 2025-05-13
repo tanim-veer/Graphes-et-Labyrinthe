@@ -1,4 +1,4 @@
-package partie1.graph.test;
+package partie1.test;
 
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;

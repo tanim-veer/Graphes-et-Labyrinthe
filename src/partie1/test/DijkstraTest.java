@@ -1,4 +1,4 @@
-package partie1.dijkstra.test;
+package partie1.test;
 
 import static org.junit.Assert.assertThrows;
 import static org.junit.jupiter.api.Assertions.*;
@@ -74,7 +74,7 @@ class DijkstraTest {
 		VarGraph g = new GrapheHHAdj();
 		g.peupler(GRAPH1);
 		Distances<String> dst = dijkstra.compute(g, FROM);
-		System.out.println("Graphe : " + g);
+		System.out.println("Graphe : \n" + g);
 		System.out.println("Distances de A : " + dst.dist());
 		System.out.println("Predecesseurs : " + dst.pred());
 		System.out.println("Distance de " + FROM + " à " + TO + " : " + dst.dist().get(TO));

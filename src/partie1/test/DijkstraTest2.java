@@ -1,4 +1,4 @@
-package partie1.dijkstra.test;
+package partie1.test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -6,7 +6,7 @@ import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.List;
 import java.util.Map;
-import partie1.graph.Graph;
+
 import partie1.graph.GrapheHHAdj;
 import partie1.graph.ShortestPath.Distances;
 import partie1.graph.VarGraph;
@@ -67,7 +67,7 @@ public class DijkstraTest2 {
         assertNull(c, "Le prédécesseur de A devrait être null");
 
         // Affichage pour inspection
-        System.out.println("Graphe avec cycle : " + g);
+        System.out.println("Graphe avec cycle : \n" + g);
         System.out.println("Distances de A : " + dst.dist());
         System.out.println("Predecesseurs : " + dst.pred());
         System.out.println("Distance de A à D : " + dst.dist().get(TO_CYCLE));
@@ -115,7 +115,8 @@ public class DijkstraTest2 {
         assertNull(c, "Le prédécesseur de A devrait être null");
 
         // Affichage pour inspection
-        System.out.println("Graphe avec sommet isolé : " + g);
+        System.out.println("\n ---------------------- \n");
+        System.out.println("Graphe avec sommet isolé : \n" + g);
         System.out.println("Distances de A : " + dst.dist());
         System.out.println("Predecesseurs : " + dst.pred());
         System.out.println("Distance de A à D : " + dst.dist().get(TO_ISOLE));
