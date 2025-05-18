@@ -1,4 +1,4 @@
-package partie1.graph;
+package partie1.graphe;
 
 /**
  * Interface pour manipuler des graphes orientés et valués avec des sommets de type String.

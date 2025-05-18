@@ -4,8 +4,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
 
-import partie1.graph.Graph;
-import partie1.graph.ShortestPath.Distances;
+import partie1.graphe.Graph;
+import partie1.graphe.ShortestPath.Distances;
 import maze.regular.RegularMaze;
 import partie2.adaptator.GraphMaze;
 import partie1.dijkstra.Dijkstra;
@@ -88,6 +88,6 @@ public class Checker {
 		if (!dst.dist().equals(expectedDist.dist())|| !checkPred(maze, expectedDist, dst))
 			System.out.println("echec" + " : " + mazeFile + " et " + distFile);
 		else
-				System.out.println("succes"	+ " : " + mazeFile + " et " + distFile	);
+			System.out.println("succes"	+ " : " + mazeFile + " et " + distFile	);
 	}
 }

@@ -6,8 +6,8 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
-import partie1.graph.Graph;
-import partie1.graph.ShortestPath.Distances;
+import partie1.graphe.Graph;
+import partie1.graphe.ShortestPath.Distances;
 import maze.panel.MazeView;
 import maze.regular.RegularMaze;
 import partie2.adaptator.GraphMaze;

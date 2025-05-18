@@ -7,9 +7,9 @@ import java.util.Deque;
 import java.util.List;
 import java.util.Map;
 
-import partie1.graph.GrapheHHAdj;
-import partie1.graph.ShortestPath.Distances;
-import partie1.graph.VarGraph;
+import partie1.graphe.GrapheHHAdj;
+import partie1.graphe.ShortestPath.Distances;
+import partie1.graphe.VarGraph;
 import org.junit.jupiter.api.Test;
 
 import partie1.dijkstra.Dijkstra;

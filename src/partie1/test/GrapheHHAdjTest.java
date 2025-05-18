@@ -3,8 +3,8 @@ package partie1.test;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
-import partie1.graph.GrapheHHAdj;
-import partie1.graph.Graph.Arc;
+import partie1.graphe.GrapheHHAdj;
+import partie1.graphe.Graph.Arc;
 
 import java.util.List;
 

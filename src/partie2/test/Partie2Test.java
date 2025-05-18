@@ -4,7 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-import partie1.graph.Graph;
+import partie1.graphe.Graph;
 import partie2.adaptator.GraphMaze;
 import partie2.applications.Checker;
 import partie2.applications.Animation;

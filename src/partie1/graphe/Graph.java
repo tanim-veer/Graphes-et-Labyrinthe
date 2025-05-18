@@ -1,4 +1,4 @@
-package partie1.graph;
+package partie1.graphe;
 
 import java.util.List;
 

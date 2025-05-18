@@ -8,10 +8,10 @@ import java.util.Deque;
 import java.util.List;
 
 import partie1.dijkstra.Dijkstra;
-import partie1.graph.Graph;
-import partie1.graph.GrapheHHAdj;
-import partie1.graph.ShortestPath.Distances;
-import partie1.graph.VarGraph;
+import partie1.graphe.Graph;
+import partie1.graphe.GrapheHHAdj;
+import partie1.graphe.ShortestPath.Distances;
+import partie1.graphe.VarGraph;
 import org.junit.jupiter.api.Test;
 
 /**

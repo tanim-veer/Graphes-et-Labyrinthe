@@ -3,7 +3,7 @@ package partie2.adaptator;
 import java.util.ArrayList;
 import java.util.List;
 import maze.Maze;
-import partie1.graph.Graph;
+import partie1.graphe.Graph;
 
 /**
  * Adaptateur pour transformer un labyrinthe ({@link Maze}) en un graphe ({@link Graph}).

@@ -1,4 +1,4 @@
-package partie1.graph;
+package partie1.graphe;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
